@@ -1,0 +1,18 @@
+﻿// Implement MenuItem as a leaf in the composite pattern
+using System;
+using NavigationSystem.Menu;
+
+namespace NavigationSystem.Menu
+{
+    public class MenuItem : MenuComponent
+    {
+        public MenuItem(string title) : base(title)
+        {
+        }
+
+        public override void Display(int indent)
+        {
+            Console.WriteLine(new string(' ', indent * 2) + "- " + Title);
+        }
+    }
+}

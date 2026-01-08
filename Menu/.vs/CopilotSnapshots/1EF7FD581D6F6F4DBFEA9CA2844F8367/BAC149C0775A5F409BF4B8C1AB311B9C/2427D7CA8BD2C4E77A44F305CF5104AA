@@ -1,0 +1,46 @@
+﻿using System;
+// Add the namespace for your new folder
+using NavigationSystem.Menu;
+
+namespace NavigationSystem
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Create root menu
+            MenuCategory mainMenu = new MenuCategory("Hlavní Menu");
+
+            // Create 'File' sub-menu
+            MenuCategory fileMenu = new MenuCategory("Soubor");
+            fileMenu.Add(new MenuItem("Nový"));
+            fileMenu.Add(new MenuItem("Otevřít"));
+            fileMenu.Add(new MenuItem("Uložit"));
+
+            // Create 'Settings' sub-menu
+            MenuCategory settingsMenu = new MenuCategory("Nastavení");
+            settingsMenu.Add(new MenuItem("Video"));
+            settingsMenu.Add(new MenuItem("Audio"));
+
+            // Nested sub-menu inside Settings
+            MenuCategory controlsMenu = new MenuCategory("Ovládání");
+            controlsMenu.Add(new MenuItem("Klávesnice"));
+            controlsMenu.Add(new MenuItem("Myš"));
+            settingsMenu.Add(controlsMenu);
+
+            // Add simple item to main menu
+            MenuItem exitItem = new MenuItem("Ukončit");
+
+            // Build the tree structure
+            mainMenu.Add(fileMenu);
+            mainMenu.Add(settingsMenu);
+            mainMenu.Add(exitItem);
+
+            // Display the entire structure with one call
+            Console.WriteLine("Výpis struktury menu:\n");
+            mainMenu.Display(0);
+
+            Console.ReadKey();
+        }
+    }
+}

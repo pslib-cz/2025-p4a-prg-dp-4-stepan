@@ -1,0 +1,110 @@
+﻿using System;
+using NavigationSystem.Menu;
+
+namespace NavigationSystem
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool running = true;
+
+            // Define actions
+            Action newFileAction = () => Console.WriteLine("Akce: Nový soubor");
+            Action openFileAction = () => Console.WriteLine("Akce: Otevřít soubor");
+            Action saveFileAction = () => Console.WriteLine("Akce: Uložit soubor");
+            Action videoSettingsAction = () => Console.WriteLine("Akce: Nastavení videa");
+            Action audioSettingsAction = () => Console.WriteLine("Akce: Nastavení audia");
+            Action keyboardSettingsAction = () => Console.WriteLine("Akce: Nastavení klávesnice");
+            Action mouseSettingsAction = () => Console.WriteLine("Akce: Nastavení myši");
+            Action exitAction = () =>
+            {
+                Console.WriteLine("Ukončuji aplikaci...");
+                running = false;
+            };
+
+            // Create root menu
+            var mainMenu = new MenuCategory("Hlavní Menu");
+
+            // Create 'File' sub-menu
+            var fileMenu = new MenuCategory("Soubor");
+            fileMenu.Add(new MenuItem("Nový", newFileAction));
+            fileMenu.Add(new MenuItem("Otevřít", openFileAction));
+            fileMenu.Add(new MenuItem("Uložit", saveFileAction));
+
+            // Create 'Settings' sub-menu
+            var settingsMenu = new MenuCategory("Nastavení");
+            settingsMenu.Add(new MenuItem("Video", videoSettingsAction));
+            settingsMenu.Add(new MenuItem("Audio", audioSettingsAction));
+
+            // Nested sub-menu inside Settings
+            var controlsMenu = new MenuCategory("Ovládání");
+            controlsMenu.Add(new MenuItem("Klávesnice", keyboardSettingsAction));
+            controlsMenu.Add(new MenuItem("Myš", mouseSettingsAction));
+            settingsMenu.Add(controlsMenu);
+
+            // Add items to main menu
+            mainMenu.Add(fileMenu);
+            mainMenu.Add(settingsMenu);
+            mainMenu.Add(new MenuItem("Ukončit", exitAction));
+
+            MenuComponent currentMenu = mainMenu;
+
+            while (running)
+            {
+                Console.Clear();
+                Console.WriteLine($"--- {currentMenu.Title} ---");
+                currentMenu.Display(0);
+                Console.WriteLine("0. Zpět");
+                Console.Write("\nVyberte možnost: ");
+
+                string choice = Console.ReadLine();
+                if (int.TryParse(choice, out int selection))
+                {
+                    if (selection == 0)
+                    {
+                        if (currentMenu.Parent != null)
+                        {
+                            currentMenu = currentMenu.Parent;
+                        }
+                        else if (currentMenu == mainMenu)
+                        {
+                            // Special case for exiting from the main menu's "Back" option
+                            Console.WriteLine("Jste v hlavním menu, pro ukončení zvolte možnost Ukončit.");
+                            Console.ReadKey();
+                        }
+                        continue;
+                    }
+
+                    if (currentMenu is MenuCategory category)
+                    {
+                        MenuComponent selectedComponent = category.GetChild(selection - 1);
+                        if (selectedComponent != null)
+                        {
+                            if (selectedComponent is MenuCategory)
+                            {
+                                currentMenu = selectedComponent;
+                            }
+                            else
+                            {
+                                selectedComponent.Execute();
+                                Console.WriteLine("\nStiskněte libovolnou klávesu pro pokračování...");
+                                Console.ReadKey();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Neplatná volba. Zkuste to znovu.");
+                            Console.ReadKey();
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Neplatný vstup. Zadejte prosím číslo.");
+                    Console.ReadKey();
+                }
+            }
+        }
+    }
+}

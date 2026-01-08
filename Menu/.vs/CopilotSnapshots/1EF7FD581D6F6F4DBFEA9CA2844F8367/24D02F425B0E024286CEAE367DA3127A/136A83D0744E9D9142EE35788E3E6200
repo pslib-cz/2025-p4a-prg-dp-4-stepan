@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace NavigationSystem.Menu
+{
+    public class MenuCategory : MenuComponent
+    {
+        private readonly List<MenuComponent> _children = new List<MenuComponent>();
+
+        public MenuCategory(string title) : base(title)
+        {
+        }
+
+        public override void Add(MenuComponent component)
+        {
+            _children.Add(component);
+        }
+
+        public override void Remove(MenuComponent component)
+        {
+            _children.Remove(component);
+        }
+
+        public override void Display(int indent)
+        {
+            Console.WriteLine(new string(' ', indent * 2) + "+ " + Title);
+            foreach (var child in _children)
+            {
+                child.Display(indent + 1);
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+C:\Users\radomir.mendri.022\Desktop\2025-p4a-prg-dp-4-stepan\Menu\Menu\bin\Debug\net9.0\Menu.exe
+C:\Users\radomir.mendri.022\Desktop\2025-p4a-prg-dp-4-stepan\Menu\Menu\bin\Debug\net9.0\Menu.deps.json
+C:\Users\radomir.mendri.022\Desktop\2025-p4a-prg-dp-4-stepan\Menu\Menu\bin\Debug\net9.0\Menu.runtimeconfig.json
+C:\Users\radomir.mendri.022\Desktop\2025-p4a-prg-dp-4-stepan\Menu\Menu\bin\Debug\net9.0\Menu.dll
+C:\Users\radomir.mendri.022\Desktop\2025-p4a-prg-dp-4-stepan\Menu\Menu\bin\Debug\net9.0\Menu.pdb
+C:\Users\radomir.mendri.022\Desktop\2025-p4a-prg-dp-4-stepan\Menu\Menu\obj\Debug\net9.0\Menu.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\radomir.mendri.022\Desktop\2025-p4a-prg-dp-4-stepan\Menu\Menu\obj\Debug\net9.0\Menu.AssemblyInfoInputs.cache
+C:\Users\radomir.mendri.022\Desktop\2025-p4a-prg-dp-4-stepan\Menu\Menu\obj\Debug\net9.0\Menu.AssemblyInfo.cs
+C:\Users\radomir.mendri.022\Desktop\2025-p4a-prg-dp-4-stepan\Menu\Menu\obj\Debug\net9.0\Menu.csproj.CoreCompileInputs.cache
+C:\Users\radomir.mendri.022\Desktop\2025-p4a-prg-dp-4-stepan\Menu\Menu\obj\Debug\net9.0\Menu.dll
+C:\Users\radomir.mendri.022\Desktop\2025-p4a-prg-dp-4-stepan\Menu\Menu\obj\Debug\net9.0\refint\Menu.dll
+C:\Users\radomir.mendri.022\Desktop\2025-p4a-prg-dp-4-stepan\Menu\Menu\obj\Debug\net9.0\Menu.pdb
+C:\Users\radomir.mendri.022\Desktop\2025-p4a-prg-dp-4-stepan\Menu\Menu\obj\Debug\net9.0\Menu.genruntimeconfig.cache
+C:\Users\radomir.mendri.022\Desktop\2025-p4a-prg-dp-4-stepan\Menu\Menu\obj\Debug\net9.0\ref\Menu.dll

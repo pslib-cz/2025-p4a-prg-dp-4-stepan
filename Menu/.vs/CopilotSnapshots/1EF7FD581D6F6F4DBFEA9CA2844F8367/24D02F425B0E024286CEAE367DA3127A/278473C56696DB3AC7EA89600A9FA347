@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace NavigationSystem.Menu
+{
+    // Base component in Composite pattern
+    public abstract class MenuComponent
+    {
+        public string Title { get; }
+        public MenuComponent Parent { get; internal set; }
+
+        protected MenuComponent(string title)
+        {
+            Title = title;
+        }
+
+        public virtual void Add(MenuComponent component)
+        {
+            throw new InvalidOperationException("Cannot add to this component");
+        }
+
+        public virtual void Remove(MenuComponent component)
+        {
+            throw new InvalidOperationException("Cannot remove from this component");
+        }
+
+        public abstract void Display(int indent);
+
+        public virtual void Execute()
+        {
+            // Default behavior is to do nothing
+        }
+    }
+}
